@@ -17,16 +17,37 @@
                 <div class="mb-3">
                     <label class="form-label">Nome do Produto:</label>
                     <input type="text" formControlName="nome" class="form-control" />
+                    <div class="text-danger" *ngIf="form.get('nome')?.touched">
+                    <div *ngIf="form.get('nome')?.hasError('required')">
+                        Por favor, digite o nome do produto.
+                    </div>
+                    <div *ngIf="form.get('nome')?.hasError('maxlength')">
+                        Por favor, informe no máximo 50 caracteres no nome do produto.
+                    </div>
+                </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Valor do Produto:</label>
                     <input type="number" formControlName="preco" class="form-control" />
+                    <div class="text-danger" *ngIf="form.get('preco')?.touched">
+                    <div *ngIf="form.get('preco')?.hasError('required')">
+                        Por favor, informe o preço do produto.
+                    </div>
+                </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Quantidade:</label>
                     <input type="number" formControlName="quantidade" class="form-control" />
+                    <div class="text-danger" *ngIf="form.get('quantidade')?.touched">
+                    <div *ngIf="form.get('quantidade')?.hasError('required')">
+                        Por favor, informe a quantidade do produto.
+                    </div>
+                    <div *ngIf="form.get('quantidade')?.hasError('min')">
+                        A quantidade deve ser maior que zero.
+                    </div>
+                </div>
                 </div>
 
 

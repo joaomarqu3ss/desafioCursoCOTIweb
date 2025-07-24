@@ -25,7 +25,7 @@ export class CadastrarProduto {
   form = this.fb.group({
     nome: ['',[Validators.required]],
     preco: ['',[Validators.required]],
-    quantidade: ['',[Validators.required]]
+    quantidade: ['',[Validators.required, Validators.min(1)]]
   })
 
   onSubmit() {
